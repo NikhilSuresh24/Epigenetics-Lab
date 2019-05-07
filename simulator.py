@@ -72,10 +72,3 @@ class Simulator:
         phenotype.append('Q' if self.x[aq] == 0 else 'A')
         phenotype.append('B' if self.x[sb] == 0 else 'S')
         print(''.join(phenotype))
-
-
-test = Simulator()
-test.reset([1,-1,1,0,1,1,1,-1,-1,0], [1, 0, 1, 1, 1, 1, 1, 0, 0, 1])
-test.print_state()
-test.step()
-test.print_state()
