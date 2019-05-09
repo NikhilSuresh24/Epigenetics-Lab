@@ -16,7 +16,7 @@ class BackSolve:
         if self.debug:
             print("---------Phase Zero----------")
         genes_found = 0
-        for i in range(10):
+        for i in range(self.num_genes):
             genome = np.full(self.num_genes, -1)
             genome[i] = 1
             phenotype = np.where(genome == -1, 0, genome)
@@ -52,28 +52,23 @@ class BackSolve:
 
     def phase_one(self):
         '''Find E_M'''
+        R_m_pos = 6
+        E_m_pos = 8
         genome = np.full(self.num_genes, -1)
-        print(self.order, self.order[6])
-        genome[self.order[6]] = 1
-        print("genome", genome)
+        genome[self.order[R_m_pos]] = 1
         for i in range(self.num_genes):
             if i not in self.order:
-                # print(i)
                 genome[i] = 1
-                print("2", genome)
                 phenotype = np.where(genome == -1, 0, genome)
                 self.sim.reset(genome, phenotype)
-                print("v,x", self.sim.v, self.sim.x)
-                v, x = self.sim.step()
-                print(x)
-                print(np.all(x == 1))
-                if np.all(x == 1):
-
-                    self.order[8] = i
+                self.sim.step()
+                self.sim.step()
+                p_2 = self.sim.print_state(False)
+                print("P_2", p_2)
+                if p_2 == self.active_phenotype:
+                    self.order[E_m_pos] = i
+                    print("found E_M", i)
                     break
-                # if x == np.ones((1, self.num_genes)):
-                #     self.order[8] = i
-                #     break
 
     def phase_two():
         pass
@@ -82,5 +77,6 @@ class BackSolve:
 x = BackSolve()
 # x.order = np.array([2, 8, 3, 6, -1, -1, 5, -1, -1, -1])
 x.phase_zero()
+# print(x.order)
+x.phase_one()
 print(x.order)
-# x.phase_one()
