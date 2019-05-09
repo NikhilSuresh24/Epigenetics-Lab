@@ -62,25 +62,32 @@ class Simulator:
 
         return (nextv, nextx)
 
-    def print_state(self):
-        print('p: ', end='')
-        print(' '.join(self.permutation))
+    def print_state(self, debug=True):
+        if debug:
+            print('p: ', end='')
+            print(' '.join(self.permutation))
 
-        print('v: ', end='')
+            print('v: ', end='')
         for i in self.v:
             if i == -1:
-                print(i, end=' ')
+                if debug:
+                    print(i, end=' ')
             else:
-                print(i, end='  ')
+                if debug:
+                    print(i, end='  ')
 
-        print('\nx: ', end='')
+        if debug:
+            print('\nx: ', end='')
         for i in self.x:
             if i == -1:
-                print(i, end=' ')
+                if debug:
+                    print(i, end=' ')
             else:
-                print(i, end='  ')
+                if debug:
+                    print(i, end='  ')
 
-        print('\n')
+        if debug:
+            print('\n')
 
         gr = self.permutation.index('gr')
         nw = self.permutation.index('nw')
@@ -92,5 +99,6 @@ class Simulator:
         phenotype.append('W' if self.x[nw] == 0 else 'N')
         phenotype.append('Q' if self.x[aq] == 0 else 'A')
         phenotype.append('B' if self.x[sb] == 0 else 'S')
-        print(''.join(phenotype))
+        if debug:
+            print(''.join(phenotype))
         return ''.join(phenotype)
