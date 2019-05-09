@@ -3,7 +3,7 @@ import random
 
 
 class Simulator:
-    def __init__(self):
+    def __init__(self, is_shuffle=True):
         self.permutation = ['gr', 'nw', 'aq', 'sb',
                             'wm', 'rm', 'em', 'wa', 'ra', 'ea']
         self.num_genes = 10
@@ -11,7 +11,8 @@ class Simulator:
         self.x = np.zeros(self.num_genes)
         # self.v = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         # self.x = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-        random.shuffle(self.permutation)
+        if is_shuffle:
+            random.shuffle(self.permutation)
 
     def reset(self, startv, startx):
         if len(startv) != self.num_genes or len(startx) != self.num_genes:
@@ -20,6 +21,12 @@ class Simulator:
 
         self.x = startx
         self.v = startv
+
+    def get_x(self):
+        return self.x
+
+    def get_v(self):
+        return self.v
 
     def step(self):
         nextv = np.empty(self.num_genes)
