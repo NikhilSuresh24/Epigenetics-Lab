@@ -86,3 +86,4 @@ class Simulator:
         phenotype.append('Q' if self.x[aq] == 0 else 'A')
         phenotype.append('B' if self.x[sb] == 0 else 'S')
         print(''.join(phenotype))
+        return ''.join(phenotype)
