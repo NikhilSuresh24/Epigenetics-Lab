@@ -150,7 +150,8 @@ class BackSolve:
         self.save_file()
 
 
-x = BackSolve(True, True)
-x.phase_zero()
-x.phase_one()
-x.phase_two()
+if __name__ == "__main__":
+    x = BackSolve(True, True)
+    x.phase_zero()
+    x.phase_one()
+    x.phase_two()
