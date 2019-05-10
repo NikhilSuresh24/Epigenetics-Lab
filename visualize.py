@@ -42,15 +42,29 @@ class Application(tk.Frame):
         
         text_y = 50
 
-        self.canvas.create_text(20, text_y, anchor="w", text="head size body eye wm rm em wa ra ea")
+        self.canvas.create_text(30, text_y, anchor="w", text="head size body eyes wm// rm// em// wa// ra// ea//")
 
         for v,x in self.history:
             text_y += 20
-            text = "v: " + ' '.join(map(str, v))
-            self.canvas.create_text(15, text_y, anchor="w", text=text)
+            self.canvas.create_text(15, text_y, anchor="w", text="v: ")
+            rect_x = 0
+            for i in v:
+                rect_x += 33
+                color = "white"
+                if i == -1:
+                    color = "red"
+                elif i == 1:
+                    color = "green"
+                self.canvas.create_rectangle(rect_x, text_y, rect_x + 20, text_y + 10, fill=color)
             text_y += 20
-            text = "x: " + ' '.join(map(str, x))
-            self.canvas.create_text(15, text_y, anchor="w", text=text)
+            self.canvas.create_text(15, text_y, anchor="w", text="x: ")
+            rect_x = 0
+            for i in x:
+                rect_x += 33
+                color = "red"
+                if i == 1:
+                    color = "green"
+                self.canvas.create_rectangle(rect_x, text_y, rect_x + 20, text_y + 10, fill=color)
             text_y += 20
 
         head_color = "white"
