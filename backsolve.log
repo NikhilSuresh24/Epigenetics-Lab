@@ -1,0 +1,127 @@
+
+---------Phase Zero----------
+
+Trying Position: 0
+Markings: [ 1 -1 -1 -1 -1 -1 -1 -1 -1 -1]
+t=0 Phenotype: RWQB
+t=1 Phenotype:GNAS
+t=2 Phenotype: GWQB
+Gene: C Unchanged Gene Expression: G  Position: 0
+
+Trying Position: 1
+Markings: [-1  1 -1 -1 -1 -1 -1 -1 -1 -1]
+t=0 Phenotype: GWQB
+t=1 Phenotype:GNAS
+t=2 Phenotype: RWQS
+Gene: T Unchanged Gene Expression: S  Position: 1
+
+Trying Position: 2
+Markings: [-1 -1  1 -1 -1 -1 -1 -1 -1 -1]
+t=0 Phenotype: RWQS
+t=1 Phenotype:GNAS
+t=2 Phenotype: RWQB
+skipped
+
+Trying Position: 3
+Markings: [-1 -1 -1  1 -1 -1 -1 -1 -1 -1]
+t=0 Phenotype: RWQB
+t=1 Phenotype:GNAS
+t=2 Phenotype: RWAB
+Gene: A Unchanged Gene Expression: A  Position: 3
+
+Trying Position: 4
+Markings: [-1 -1 -1 -1  1 -1 -1 -1 -1 -1]
+t=0 Phenotype: RWAB
+t=1 Phenotype:GNAS
+t=2 Phenotype: RNQB
+Gene: S Unchanged Gene Expression: N  Position: 4
+
+Trying Position: 5
+Markings: [-1 -1 -1 -1 -1  1 -1 -1 -1 -1]
+t=0 Phenotype: RNQB
+t=1 Phenotype:GNAS
+t=2 Phenotype: RWQB
+skipped
+
+Trying Position: 6
+Markings: [-1 -1 -1 -1 -1 -1  1 -1 -1 -1]
+t=0 Phenotype: RWQB
+t=1 Phenotype:GNAS
+t=2 Phenotype: RWQB
+skipped
+
+Trying Position: 7
+Markings: [-1 -1 -1 -1 -1 -1 -1  1 -1 -1]
+t=0 Phenotype: RWQB
+t=1 Phenotype:GNAS
+t=2 Phenotype: RWQB
+skipped
+
+Trying Position: 8
+Markings: [-1 -1 -1 -1 -1 -1 -1 -1  1 -1]
+t=0 Phenotype: RWQB
+t=1 Phenotype:GNAS
+t=2 Phenotype: RWQB
+skipped
+
+Trying Position: 9
+Markings: [-1 -1 -1 -1 -1 -1 -1 -1 -1  1]
+t=0 Phenotype: RWQB
+t=1 Phenotype:RWQB
+found RM, position: 9
+t=2 Phenotype: RWQB
+skipped
+
+----------Phase One-------------
+
+Trying Position: 2
+Markings: [-1 -1  1 -1 -1 -1 -1 -1 -1  1]
+t=0 Phenotype: RWQB
+t=1 Phenotype: RWQB
+t=2 Phenotype: RWQB
+skipped
+
+Trying Position: 5
+Markings: [-1 -1 -1 -1 -1  1 -1 -1 -1  1]
+t=0 Phenotype: RWQB
+t=1 Phenotype: RWQB
+t=2 Phenotype: RWQB
+skipped
+
+Trying Position: 6
+Markings: [-1 -1 -1 -1 -1 -1  1 -1 -1  1]
+t=0 Phenotype: RWQB
+t=1 Phenotype: RWQB
+t=2 Phenotype: GNAS
+found E_M Position: 6
+
+----------Phase Two-------------
+
+Trying Position: 2
+t=0 Markings: [ 0 -1  1 -1 -1 -1 -1 -1 -1 -1]
+t=0 Phenotype: RWQB
+t=1 Markings: [ 0. -1.  1. -1. -1. -1. -1. -1. -1. -1.]
+skipped
+
+Trying Position: 5
+t=0 Markings: [ 0 -1 -1 -1 -1  1 -1 -1 -1 -1]
+t=0 Phenotype: RWQB
+t=1 Markings: [ 0. -1. -1. -1. -1.  1. -1. -1. -1. -1.]
+skipped
+
+Trying Position: 7
+t=0 Markings: [ 0 -1 -1 -1 -1 -1 -1  1 -1 -1]
+t=0 Phenotype: RWQB
+t=1 Markings: [ 1. -1. -1. -1. -1. -1. -1.  1. -1. -1.]
+found W_A Position: 7
+
+Trying Position: 8
+t=0 Markings: [ 0 -1 -1 -1 -1 -1 -1 -1  1 -1]
+t=0 Phenotype: RWQB
+t=1 Markings: [-1. -1. -1. -1. -1. -1. -1. -1.  1. -1.]
+found W_M Position: 8
+found W_A, W_M, finishing early
+
+---------Gene Positions------------
+ Order: ['C: 0' 'S: 4' 'A: 3' 'T: 1' 'W_M: 8' 'W_A: 7' 'R_M: 9' 'R_A: -1' 'E_M: 6'
+ 'E_A: -1']
