@@ -21,7 +21,7 @@ class BackSolve:
     def genes_to_string(self, genes):
         '''takes in array of genes, returns nice string version'''
         if len(genes) != self.num_genes:
-            print("requires 10 genes to stringify")
+            print("requires {} genes to stringify".format(self.num_genes))
             return ""
 
         return np.array([self.gene_order[i] + ": " + str(genes[i])
@@ -37,6 +37,9 @@ class BackSolve:
         log_file = open(self.log_file_path, "w+")
         log_file.write(self.log_string)
 
+    def get_phenotype(self, genome):
+        return np.where(genome == -1, 0, genome)
+
     def phase_zero(self):
         '''FIND C, S, A, T, R_M'''
         self.log_debug_print("\n---------Phase Zero----------")
@@ -50,7 +53,7 @@ class BackSolve:
             genome[pos] = 1
             self.log_debug_print("Markings: {}".format(
                 np.array2string(genome)))
-            phenotype = np.where(genome == -1, 0, genome)
+            phenotype = self.get_phenotype(genome)
             self.log_debug_print("t=0 Phenotype: {}".format(
                 self.sim.print_state(False)))
             self.sim.reset(genome, phenotype)
@@ -90,7 +93,7 @@ class BackSolve:
                 genome[pos] = 1
                 self.log_debug_print("Markings: {}".format(
                     np.array2string(genome)))
-                phenotype = np.where(genome == -1, 0, genome)
+                phenotype = self.get_phenotype(genome)
                 self.sim.reset(genome, phenotype)
                 self.log_debug_print("t=0 Phenotype: {}".format(
                     self.sim.print_state(False)))
@@ -124,7 +127,7 @@ class BackSolve:
             if pos not in self.order:
                 self.log_debug_print("\nTrying Position: {}".format(pos))
                 genome[pos] = 1
-                phenotype = np.where(genome == -1, 0, genome)
+                phenotype = self.get_phenotype(genome)
                 self.log_debug_print("t=0 Markings: {}".format(
                     np.array2string(genome)))
                 self.sim.reset(genome, phenotype)

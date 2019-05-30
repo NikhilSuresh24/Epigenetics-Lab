@@ -1,4 +1,4 @@
-# Simulation and Locating of Randomly Ordered Epigenetic Genes
+# Simulation and Location of Randomly Ordered Epigenetic Genes
 
 In this experiment, 10 genes, 4 phenotypic genes, and 6 epigenetic genes, are put in a random order. The simulation takes in as input an initial list of epigenetic markings, and the list of the gene's expression, which will be clarified later.
 
@@ -14,6 +14,17 @@ In this simulation, we are dealing with 6 epigenetic genes, erasers, writers, an
 
 ## Experiment Explanation
 As mentioned earlier, the simulation randomizes the order of the 10 genes, and when simulates the change in epigenetic markings and gene expression of the genes over timesteps depending on the previous markings and expressions. 
+
+The four phenotypic genes are Color (C), Size (S), Activity (A), and Texture (T), while the six epigenetic genes are readers `(R_m, R_a)`, writers `(W_m, W_a)`, and erasers `(E_m, E_a)` for both methylation and acetylation.
+
+Below are the different possible expressions for the genes:
+
+    Color (C): Green (G) when on, Red (R) when off
+    Size (S): Narrow (N) when on, Wide (W) when off
+    Activity (A): Active (A) when on, Quiescent (Q) when off
+    Texture (T): Smooth (S) when on, Bumpy (B) when off
+
+The epigenetic genes do their aforementioned [purpose](#Experimental-Background) when on, and don't when they are off.
 
 For markings, `0` represents an unmarked gene, which is expressed in this simulation, `1` represents an acetylated gene, which is also expressed, and `-1` represents a methylated gene, which is not expressed. 
 
@@ -31,8 +42,8 @@ To run the simulation, a variant of the following code will work in python3:
     import numpy as np
 
     s = Simulator()
-    markings_0 = np.array([])
-    expression_0 = np.array([])
+    markings_0 = np.full((s.num_genes, -1))
+    expression_0 = np.where(genome == -1, 0, genome)
     s.reset(markings, expression)
     markings_1, expression_1 = s.step()
     phenotype_1 = s.print_state()
@@ -44,6 +55,8 @@ To run a visualization of the simulation, run the following command in Terminal:
     python3 visualize.py
 
 ## Backsolve Algorithm
+
+The algorithm is split into three phases: Phase zero solves the position of `C`, `S`, `A`, and `T`; Phase one solves for `E_m`; and Phase two solves for `W_a, W_m`.
 
 ## Backsolve Code
 
